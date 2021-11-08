@@ -3,7 +3,6 @@ import express from 'express';
 import cors from 'cors';
 
 const app = express()
-const port = 3000;
 
 app.use(cors())
 app.use(express.urlencoded({extended: true}));
@@ -24,6 +23,4 @@ app.post('/login', async (req, res) => {
   return res.send(data);
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(process.env.PORT || 5000)
